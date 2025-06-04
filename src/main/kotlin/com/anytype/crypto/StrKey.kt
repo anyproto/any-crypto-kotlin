@@ -1,7 +1,10 @@
 package com.anytype.crypto
 
+import org.komputing.kbase58.decodeBase58
+import org.komputing.kbase58.encodeToBase58String
+
 object StrKey {
-    const val ACCOUNT_ADDRESS_VERSION_BYTE: Byte = 0x30.toByte()
+    const val ACCOUNT_ADDRESS_VERSION_BYTE: Byte = 0x5B.toByte()
     
     class InvalidVersionByteException : Exception("Invalid version byte")
     class InvalidChecksumException : Exception("Invalid checksum")
@@ -35,12 +38,12 @@ object StrKey {
         val checksum = CRC16.checksum(raw.toByteArray())
         raw.addAll(checksum.toList())
         
-        return Base58.encode(raw.toByteArray())
+        return raw.toByteArray().encodeToBase58String()
     }
     
     private fun decodeString(src: String): ByteArray {
         val raw = try {
-            Base58.decode(src)
+            src.decodeBase58()
         } catch (e: Exception) {
             throw IllegalArgumentException("Base58 decode failed: ${e.message}")
         }

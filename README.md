@@ -41,7 +41,7 @@ dependencies {
 import com.anytype.crypto.AccountDecoder
 
 // Decode an account address to get the public key
-val accountAddress = "MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA4djV6"
+val accountAddress = "A8yCiRddQZbmRew2bGLkjKP1Q5mEBvs5sSoXxS3UynxJVTiZ"
 val pubKey = AccountDecoder.decodeAccountAddress(accountAddress)
 
 // Get the account representation back
