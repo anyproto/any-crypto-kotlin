@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "com.anytype"
+group = "com.github.anyproto"
 version = "1.0.0"
 
 repositories {
